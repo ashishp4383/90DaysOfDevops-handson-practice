@@ -1,9 +1,12 @@
 # Workflow name
 name: Hello
 
-# Runs on an automatic Trigger, when ever change is to pushed to branch (deployment)
+# Runs on an automatic trigger when changes are pushed to main matching .html files
 on:
-  workflow_dispatch: 
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
 
 # Jobs inside the workflow
 jobs:
@@ -22,4 +25,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Show Docker and Python versions
-        run: docker --version && python --version
+        run: docker --version && python3 --version
