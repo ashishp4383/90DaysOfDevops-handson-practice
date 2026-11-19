@@ -5,6 +5,7 @@ name: Hello
 on:
   push:
     branches: [main]
+    # Workflow runs when any .html file changes; otherwise it will not run.
     paths:
       - '**.html'
 
