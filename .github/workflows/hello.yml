@@ -1,7 +1,7 @@
 # Workflow name
 name: Hello
 
-# Trigger when pushing to main
+# Runs on an automatic Trigger, when ever change is to pushed to branch (deployment)
 on:
   push:
     branches: [main]
