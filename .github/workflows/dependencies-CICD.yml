@@ -1,10 +1,11 @@
 # Name of the workflow displayed in the Actions tab
 name: Dependencies-CICD
-
+# Manual Click (delivery) workflow whenever user need
 on:
   workflow_dispatch:
 
 jobs:
+  # Every jobs need seprate runner, its called parallelism 
   code:
     runs-on: ubuntu-latest
     steps:
@@ -19,14 +20,14 @@ jobs:
         run: echo "Docker Container Build"
 
   test:
-    needs: [code,build]
+    needs: [code, build]
     runs-on: ubuntu-latest
     steps:
       - name: Test the container
         run: echo "Testing The container"
 
   deploy:
-    needs: [build,code,test]
+    needs: [build, code, test]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy the app
